@@ -49,6 +49,8 @@ public class ControlFlowExercises {
 //                System.out.printf("%s\n", i);
 //            }
 //        }
+        String playAgain;
+        do {
         System.out.print("What number would you like to go up to?");
         int userNum = scanner.nextInt();
         System.out.print("Here is your table!\n\nnumber | squared | cubed\n------ | ------  | ------\n");
@@ -83,6 +85,11 @@ public class ControlFlowExercises {
                 System.out.printf(lastLine, number,square, cube);
             }
         }
+            System.out.println("Enter True to play some more");
+            playAgain = scanner.next();
+        } while (playAgain.equalsIgnoreCase("True"));
+
+        System.out.println("What a fun thing to do!!");
 
 
 
