@@ -49,47 +49,76 @@ public class ControlFlowExercises {
 //                System.out.printf("%s\n", i);
 //            }
 //        }
-        String playAgain;
-        do {
-        System.out.print("What number would you like to go up to?");
-        int userNum = scanner.nextInt();
-        System.out.print("Here is your table!\n\nnumber | squared | cubed\n------ | ------  | ------\n");
-        String lineOne = "1      | 1       | 1       \n";
-        String lastLine = "%s      | %s       | %s       \n";
-        System.out.printf(lineOne);
-        for (int i = 2; i <= userNum; i++){
-            int number = i;
-            int square = i * i;
-            int cube = i * i * i;
-            if (square >= 100000){
-                lastLine = "%s|%s|%s\n";
-                System.out.printf(lastLine, number,square, cube);
-            }
-            if (square >= 10000){
-                lastLine = "%s     | %s   | %s\n";
-                System.out.printf(lastLine, number,square, cube);
-            }
-            else if (square >= 1000){
-                lastLine = "%s     | %s    | %s\n";
-                System.out.printf(lastLine, number,square, cube);
-            }
-            else if (square >= 100){
-                lastLine = "%s     | %s     | %s\n";
-                System.out.printf(lastLine, number,square, cube);
-            }
-            else if (square >= 10){
-                lastLine = "%s      | %s      | %s\n";
-                System.out.printf(lastLine, number,square, cube);
-            }
-            else if (square > 9){
-                System.out.printf(lastLine, number,square, cube);
-            }
-        }
-            System.out.println("Enter True to play some more");
-            playAgain = scanner.next();
-        } while (playAgain.equalsIgnoreCase("True"));
+//        String playAgain;
+//        do {
+//        System.out.print("What number would you like to go up to?");
+//        int userNum = scanner.nextInt();
+//        System.out.print("Here is your table!\n\nnumber | squared | cubed\n------ | ------  | ------\n");
+//        String lineOne = "1      | 1       | 1       \n";
+//        String lastLine = "%s      | %s       | %s       \n";
+//        System.out.printf(lineOne);
+//        for (int i = 2; i <= userNum; i++){
+//            int number = i;
+//            int square = i * i;
+//            int cube = i * i * i;
+//            if (square >= 100000){
+//                lastLine = "%s|%s|%s\n";
+//                System.out.printf(lastLine, number,square, cube);
+//            }
+//            if (square >= 10000){
+//                lastLine = "%s     | %s   | %s\n";
+//                System.out.printf(lastLine, number,square, cube);
+//            }
+//            else if (square >= 1000){
+//                lastLine = "%s     | %s    | %s\n";
+//                System.out.printf(lastLine, number,square, cube);
+//            }
+//            else if (square >= 100){
+//                lastLine = "%s     | %s     | %s\n";
+//                System.out.printf(lastLine, number,square, cube);
+//            }
+//            else if (square >= 10){
+//                lastLine = "%s      | %s      | %s\n";
+//                System.out.printf(lastLine, number,square, cube);
+//            }
+//            else if (square > 9){
+//                System.out.printf(lastLine, number,square, cube);
+//            }
+//        }
+//            System.out.println("Enter True to play some more");
+//            playAgain = scanner.next();
+//        } while (playAgain.equalsIgnoreCase("True"));
+//
+//        System.out.println("What a fun thing to do!!");
+          System.out.println("What is your grade for this semester?");
+          int userGrade = scanner.nextInt();
+          String[] letters = {"A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"};
+          int[] percentageCutoff = {97,93,90,87,83,80,77,73,70,67,65,62,59};
+          for (int i = 0; i <= percentageCutoff.length; i++){
+              if (i == percentageCutoff.length){
+                  System.out.print("Would you like to enter another grade? (only Yes will continue!)");
+                  String confirm = scanner.next();
+                  if (confirm.equals("Yes")){
+                      i = 0;
+                      System.out.println("What is your grade for this semester?");
+                      userGrade = scanner.nextInt();
+                  }
+                  else {
+                      System.out.print("Finished grading conversion, see you later!");
+                      break;
+                  }
+              }
+              else if (userGrade >= percentageCutoff[i]){
+                  System.out.printf("Your letter grade is: %s\n", letters[i]);
+                  i = percentageCutoff.length-1;
+              }
+              else if (userGrade <= 59){
+                  System.out.printf("Your letter grade is: %s\n", letters[letters.length-1]);
+                  i = percentageCutoff.length-1;
+              }
 
-        System.out.println("What a fun thing to do!!");
+          }
+
 
 
 
