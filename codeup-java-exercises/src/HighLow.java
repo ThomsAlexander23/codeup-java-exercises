@@ -34,30 +34,23 @@ public class HighLow {
     public static String higherLower(int num, int guess) {
         String winner = "Good Guess";
         int tries = 0;
-        if (num == guess) {
-            System.out.printf("%s, it only took you %s tries!", winner, tries);
-            return winner;
-        } else {
+        if (!(num == guess)){
             do {
-                if (num > guess) {
-                    tries += 1;
-                    System.out.println("Higher!");
-                    num = guessAgain();
-                    if (num == guess){
-                        System.out.printf("%s, it only took you %s tries!", winner, tries);
-                        return winner;
-                    }
-                } else {
-                    tries += 1;
-                    System.out.println("Lower!");
-                    num = guessAgain();
-                    if (num == guess){
-                        System.out.printf("%s, it only took you %s tries!", winner, tries);
-                        return winner;
-                    }
+                if (num == guess) {
+                    System.out.printf("%s, it only took you %s tries!", winner, tries);
+                    return winner;
                 }
-            } while (num != guess);
-            return winner;
+                else if (num > guess) {
+                    System.out.println("Higher!");
+                } else if (num < guess) {
+                    System.out.println("Lower!");
+                }
+                tries += 1;
+                guess = guessAgain();
+                System.out.println(tries);
+            } while (tries <= 3);
         }
+        System.out.print("You Lose!");
+        return "You Lose";
     }
 }
