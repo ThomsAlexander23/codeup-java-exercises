@@ -17,7 +17,7 @@ public class MethodsExercises {
 //        System.out.println(getFactorialForLoop(getInteger(1,20)));
 //        System.out.println(getFactorialWhile(getInteger(1,20)));
 //        System.out.println(getFactorialRecursive(getInteger(1, 20)));
-        System.out.println(diceRoll(getInteger(1,6)));
+//        System.out.println(diceRoll(getInteger(1,6)));
     }
 
 
@@ -129,4 +129,5 @@ public class MethodsExercises {
         System.out.println("Sorry to see you go, young adventurer!!!");
         return dieSides;
     }
+
 }
