@@ -9,9 +9,8 @@ import java.util.Arrays;
 public class MoviesApplication {
     public static void main(String[] args) {
         Movie[] allMovies = MoviesArray.findAll();
-        String[] genres = genreList(allMovies);
         options(genreList(allMovies));
-        Display(userChoice(genreList(allMovies)),allMovies, genres);
+        Display(userChoice(genreList(allMovies)),allMovies, genreList(allMovies));
     }
 
     public static String[] genreList(Movie[] allMovies) {
@@ -54,16 +53,20 @@ public class MoviesApplication {
                 break;
             default:
                 for (int i = 0; i < uniqueGenres.length; i++) {
-                    if ((UserInput - 2) == i) {
+                    if ((UserInput-2) == i) {
                         for (Movie allmovie : allMovies) {
-                            if (allmovie.getMovie()[1].equals(uniqueGenres[1])) {
+                            if (allmovie.getMovie()[1].equals(uniqueGenres[i])) {
                                 System.out.printf("%s -- %s\n", allmovie.getMovie()[0], allmovie.getMovie()[1]);
                             }
                         }
                     }
                 }
         }
-        return Input.yesNo();
+        if (Input.yesNo()){
+            options(genreList(allMovies));
+            Display(userChoice(genreList(allMovies)),allMovies, genreList(allMovies));
+        }
+        return false;
     }
 
 
