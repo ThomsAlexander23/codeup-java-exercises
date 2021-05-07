@@ -1,18 +1,21 @@
 package grades;
 
-import java.util.ArrayList;
+import util.Input;
+
 import java.util.HashMap;
 import java.util.Scanner;
-public class GradesApplication {
-    Scanner scanner = new Scanner(System.in);
-    String input = scanner.next();
+import java.lang.String;
 
-    public static void main(String[] args){
+public class GradesApplication {
+
+
+    public static void main(String[] args) {
         HashMap<String, Student> students = new HashMap<>();
         Student alex = new Student("Alex", "Thoms");
         Student olesia = new Student("Olesia", "Thoms");
         Student vasya = new Student("Vasya", "Thoms");
         Student rhaegar = new Student("Rhaegar", "Thoms");
+
         alex.addGrade(66).addGrade(67).addGrade(69).addGrade(100);
         olesia.addGrade(90).addGrade(97).addGrade(94).addGrade(100);
         vasya.addGrade(80).addGrade(80).addGrade(99).addGrade(55);
@@ -24,15 +27,20 @@ public class GradesApplication {
         students.put("sabaka", rhaegar);
 
         System.out.println("Welcome!\n");
-        System.out.println("Here are the GitHub usernames of our students:");
-        for (String key : students.keySet()){
-            System.out.printf("| %s |",key);
+        System.out.println("Here are the GitHub usernames of our students:\n");
+        for (Object key : students.keySet()) {
+            System.out.printf("| %s |", key);
         }
-        System.out.println("\nWhat Student would you like to see?");
 
-
-
-
-
+        do {
+            System.out.println("\nEnter the students username\n");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.next();
+            if (students.containsKey(input)) {
+                System.out.printf("Name: %s\n", students.get(input).getName());
+                System.out.printf("Username: %s\n", input);
+                System.out.printf("Average Grade: %.2f\n", students.get(input).getGradeAverage());
+            }
+        } while (Input.yesNo());
     }
 }
