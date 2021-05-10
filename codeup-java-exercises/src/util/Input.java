@@ -63,15 +63,29 @@ public class Input {
 
 //    BONUS on Exceptions
 
-    public static Integer getBinary(){
-        System.out.println("Please enter binary code");
+    public static int getBinary(){
+        System.out.println("Please enter a number to convert");
         int input;
         try {
            input = Integer.valueOf(getString());
-           input = Integer.toBinaryString(input);
+           int binary = Integer.parseInt(Integer.toBinaryString(input));
+           return binary;
         } catch (Exception e){
             System.out.println("defaulted to Zero.\n");
-           input = 0;
+            input = 0;
+        }
+        return input;
+    }
+    public static int getHexadecimal(){
+        System.out.println("Please enter a number to convert");
+        int input;
+        try {
+            input = Integer.valueOf(getString());
+            int binary = Integer.parseInt(Integer.toHexString(input));
+            return binary;
+        } catch (Exception e){
+            System.out.println("defaulted to Zero.\n");
+            input = 0;
         }
         return input;
     }
