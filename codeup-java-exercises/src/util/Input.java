@@ -1,6 +1,7 @@
 package util;
 import java.util.Scanner;
 import java.lang.String;
+import java.lang.Integer;
 
 public class Input {
     private static Scanner scanner;
@@ -58,5 +59,20 @@ public class Input {
         scanner = new Scanner(System.in);
         double input = scanner.nextDouble();
         return (input <= max && input >= min) ? input : getDouble(min, max);
+    }
+
+//    BONUS on Exceptions
+
+    public static Integer getBinary(){
+        System.out.println("Please enter binary code");
+        int input;
+        try {
+           input = Integer.valueOf(getString());
+           input = Integer.toBinaryString(input);
+        } catch (Exception e){
+            System.out.println("defaulted to Zero.\n");
+           input = 0;
+        }
+        return input;
     }
 }
